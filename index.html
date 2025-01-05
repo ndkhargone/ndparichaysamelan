@@ -15,244 +15,415 @@
 
 
     <style>
-
-.carousel-img {
-    max-width: 90%; /* Slightly increase width */
-    max-height: 500px; /* Set a maximum height */
-    margin: auto; /* Center the images */
-}
-        /* Basic Styles */
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #f4f4f9;
-            color: #333;
-        }
-
-        /* Header Styles */
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 50px 20px;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            position: relative;
-        }
-
-        header h1 {
-            font-size: 3rem;
-            margin: 0;
-            font-weight: bold;
-        }
-
-        header p {
-            font-size: 1.2rem;
-            margin-top: 10px;
-        }
-
-        /* Countdown Timer Styles */
-        .countdown {
-            background-color: #ff5722;
-            color: white;
-            padding: 20px;
-            font-size: 1.5rem;
-            font-weight: bold;
-            border-radius: 8px;
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        /* Event Date, Time, and Venue */
-        .event-details {
-            margin-top: 20px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            color: #fff;
-            background-color: #333;
-            padding: 15px;
-            border-radius: 8px;
-            text-align: center;
-        }
-
-        .event-details span {
-            display: block;
-            margin-bottom: 8px;
-        }
-.modal-content {
-    background-color: #f0f8ff; /* Light blue background */
-    color: #333; /* Dark text color */
+/* Base Colors */
+:root {
+    --primary-color: #2A7B9B; /* Deep Blue - representing the river */
+    --secondary-color: #3E8E41; /* Earthy Green - representing nature */
+    --accent-color: #FFB74D; /* Warm Golden Yellow - for spirituality */
+    --background-color: #F1F5F9; /* Soft Neutral Beige */
+    --text-color: #2F2F2F; /* Dark text for readability */
+    --header-color: #3E8E41; /* Deep Green for header */
+    --footer-color: #2A7B9B; /* Deep Blue for footer */
 }
 
-        /* Navigation Styles */
-        nav {
-            background-color: #333;
-            overflow: hidden;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
+/* Body Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    background-image: url('image4.jpg'); /* Add a calming river background image */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
 
-        nav a {
-            display: inline-block;
-            padding: 16px 20px;
-            color: white;
-            text-decoration: none;
-            text-align: center;
-            font-size: 1.1rem;
-            transition: background-color 0.3s ease;
-        }
+/* Header Styles */
+header {
+    background-color: rgba(62, 142, 65, 0.85); /* Semi-transparent green */
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    background-image: linear-gradient(to right, rgba(62, 142, 65, 0.85), rgba(42, 123, 155, 0.85)); /* Gradient effect */
+}
 
-        nav a:hover {
-            background-color: #575757;
-        }
+header h1 {
+    font-size: 3.5rem;
+    margin: 0;
+    font-weight: bold;
+    font-family: 'Georgia', serif;
+}
 
-        /* Main Content */
-        .container {
-            padding: 40px 20px;
-        }
+header p {
+    font-size: 1.3rem;
+    margin-top: 10px;
+    font-style: italic;
+}
 
-        .section {
-            background-color: white;
-            padding: 40px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-            transition: transform 0.3s ease, background-color 0.3s ease;
-        }
+/* Floating Leaves Animation */
+@keyframes floatLeaves {
+    0% { transform: translateY(0); opacity: 0.5; }
+    50% { transform: translateY(-10px); opacity: 1; }
+    100% { transform: translateY(0); opacity: 0.5; }
+}
 
-    .section:hover {
+.floating-leaf {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    width: 50px;
+    height: 50px;
+    background-image: url('leaf.png');
+    background-size: contain;
+    animation: floatLeaves 3s infinite ease-in-out;
+    opacity: 0.7;
+}
+
+/* Countdown Timer */
+.countdown {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 25px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Event Details */
+.event-details {
+    margin-top: 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #fff;
+    background-color: var(--primary-color);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.event-details span {
+    display: block;
+    margin-bottom: 10px;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: var(--footer-color);
+    overflow: hidden;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav a {
+    display: inline-block;
+    padding: 18px 25px;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1.1rem;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #4B8C7B;
+}
+
+/* Main Content */
+.container {
+    padding: 50px 30px;
+}
+
+/* Section Styles */
+.section {
+    background-color: white;
+    padding: 40px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    position: relative;
+}
+
+.section:hover {
     transform: scale(1.05);
-    background-color: #e9f7e7;
+    background-color: #e8f7e6;
     transition: all 0.3s ease-in-out;
 }
 
+h2 {
+    color: var(--secondary-color);
+    font-size: 2.8rem;
+    font-weight: bold;
+    text-align: center;
+}
 
-        h2 {
-            color: #4CAF50;
-            font-size: 2.5rem;
-            font-weight: bold;
-            text-align: center;
-        }
+.section ul {
+    list-style-type: square;
+    margin-left: 25px;
+}
 
-        .section ul {
-            list-style-type: square;
-            margin-left: 20px;
-        }
+.section p {
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
 
-        .section p {
-            line-height: 1.6;
-            font-size: 1.1rem;
-        }
+/* Footer Styles */
+.footer {
+    background-color: var(--footer-color);
+    color: white;
+    padding: 25px 0;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
 
-        /* Footer Styles */
-        .footer {
-            background-color: #333;
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
+/* Payment QR Styles */
+.payment-qr {
+    text-align: center;
+    margin: 35px 0;
+}
 
-        /* Contact Form Styles */
-        .form-container {
-            background-color: white;
-            padding: 30px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
-        }
+.payment-qr img {
+    max-width: 280px;
+    width: 100%;
+}
 
-        .form-container input, .form-container textarea {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
+/* Smooth Scroll for Anchor Links */
+html {
+    scroll-behavior: smooth;
+}
 
-        .form-container button {
-            background-color: #4CAF50;
-            color: white;
-            padding: 15px 25px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1.2rem;
-        }
+/* Button Styles */
+button {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 18px 30px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.2rem;
+}
 
-        .form-container button:hover {
-            background-color: #45a049;
-        }
+button:hover {
+    background-color: #4B8C7B;
+}
 
-        /* Payment QR Styles */
-        .payment-qr {
-            text-align: center;
-            margin: 30px 0;
-        }
+/* Modal Styles */
+.modal-content {
+    background-color: #f5f5f5; /* Light gray background */
+    color: var(--text-color); /* Dark text color */
+}
 
-        .payment-qr img {
-            max-width: 300px;
-            width: 100%;
-        }
+/* Card Styles */
+.card {
+    border: 1px solid #ddd;
+    padding: 25px;
+    border-radius: 12px;
+    margin: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
 
-        /* Smooth Scroll for Anchor Links */
-        html {
-            scroll-behavior: smooth;
-        }
+.card:hover {
+    transform: translateY(-12px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+}
 
-        /* Interactive Card Style */
-        .card {
-            border: 1px solid #ddd;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
+/* Responsive Design */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2.5rem;
+    }
 
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
-        }
+    nav a {
+        font-size: 1rem;
+        padding: 14px 20px;
+    }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2rem;
-            }
+    .container {
+        padding: 20px;
+    }
 
-            nav a {
-                font-size: 1rem;
-                padding: 12px 18px;
-            }
+    .section {
+        padding: 20px;
+    }
+}
+/* Section Styling */
+#countdown {
+    background-color: #f3f4f6;
+    padding: 50px;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+}
 
-            .container {
-                padding: 20px;
-            }
+/* Timer Box Styling */
+.timer-box {
+    display: inline-block;
+    margin: 10px;
+    background: #4CAF50;
+    color: white;
+    padding: 20px 30px;
+    border-radius: 15px;
+    font-size: 2.5rem;
+    font-weight: bold;
+    position: relative;
+    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+    animation: pulse 1.5s infinite ease-in-out;
+}
 
-            .section {
-                padding: 20px;
-            }
-        }
+/* Styling for the timer text (days, hours, minutes, seconds) */
+.timer-box span {
+    display: block;
+    font-size: 3rem;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Styling for the labels (दिन, घंटे, etc.) */
+.timer-box p {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    opacity: 0.7;
+}
+
+/* Animation for the timer */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+    }
+}
+
+/* Fade-in effect for the timer numbers */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Styling for the countdown timer text */
+#countdown-timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+/* Header Section Styling */
+.header {
+    background: linear-gradient(135deg, #3A6B57, #7F9B87); /* Earthy green-blue gradient */
+    color: white;
+    padding: 40px 20px;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    border-bottom: 5px solid #D4AF37; /* Golden border for elegance */
+    position: relative;
+    overflow: hidden;
+}
+
+/* Title Styling */
+.title {
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 10px 0;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Adds shadow to title */
+    transition: transform 0.3s ease;
+}
+
+/* Subtitle Styling */
+.subtitle {
+    font-size: 1.5rem;
+    font-weight: 300;
+    margin: 10px 0;
+    opacity: 0.8;
+    letter-spacing: 1px;
+    transition: opacity 0.3s ease;
+}
+
+/* Event Details Section Styling */
+.event-details {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    opacity: 0.8;
+}
+
+/* Individual Event Detail Styling */
+.event-details span {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.event-details span:hover {
+    transform: scale(1.1); /* Slight zoom effect on hover */
+    opacity: 1;
+    color: #D4AF37; /* Golden color on hover */
+}
+
+/* Title Hover Effect */
+.title:hover {
+    transform: translateY(-10px); /* Subtle upward movement on hover */
+}
+
+/* Adding some animation to the text */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Applying the animation to the entire header */
+.header-content {
+    animation: fadeInUp 1s ease-out;
+}
+
+
+
+
     </style>
 </head>
 <body>
 
     <!-- Header Section -->
-    <header>
-        <h1>अखिल भारतीय नार्मदीय ब्राह्मण समाज परिचय सम्मेलन </h1>
-        <p>समुदाय से जुड़ें, संस्कृति का उत्सव मनाएं</p>
+    <header class="header">
+    <div class="header-content">
+        <h1 class="title">अखिल भारतीय नार्मदीय ब्राह्मण समाज परिचय सम्मेलन</h1>
+        <p class="subtitle">समुदाय से जुड़ें, संस्कृति का उत्सव मनाएं</p>
 
         <!-- Event Date, Time and Venue Details -->
         <div class="event-details">
             <span><strong>दिनांक:</strong> 09 फरवरी 2025 रविवार</span>
-            <span><strong>स्थान:</strong> माँ रेवा न्यास, सनावद रोड,जैतापुर खरगोन</span>
-            <span><strong>आयोजक:</strong> नार्मदीय ब्राह्मण समाज इकाई खरगोन </span>
+            <span><strong>स्थान:</strong> माँ रेवा न्यास, सनावद रोड, जैतापुर खरगोन</span>
+            <span><strong>आयोजक:</strong> नार्मदीय ब्राह्मण समाज इकाई खरगोन</span>
         </div>
-
-    </header>
+    </div>
+</header>
  <!-- Navigation Bar -->
     <nav>
         <a href="#about">हमारे बारे में</a>
@@ -264,18 +435,29 @@
 </a>
 
     </nav>
- <section id="countdown" class="section">
-        <h2>समारोह के शुरू होने का समय</h2>
-        <!-- Countdown Timer Div -->
-        <div id="countdown-timer" style="font-size: 2rem; font-weight: bold; text-align: center; color: #4CAF50;">
-            <div>
-                <span id="days"></span> दिन 
-                <span id="hours"></span> घंटे 
-                <span id="minutes"></span> मिनट 
-                <span id="seconds"></span> सेकंड
-            </div>
+<section id="countdown" class="section">
+    <h2>समारोह के शुरू होने का समय</h2>
+    <!-- Countdown Timer Div -->
+    <div id="countdown-timer">
+        <div class="timer-box">
+            <span id="days"></span>
+            <p>दिन</p>
         </div>
-    </section>
+        <div class="timer-box">
+            <span id="hours"></span>
+            <p>घंटे</p>
+        </div>
+        <div class="timer-box">
+            <span id="minutes"></span>
+            <p>मिनट</p>
+        </div>
+        <div class="timer-box">
+            <span id="seconds"></span>
+            <p>सेकंड</p>
+        </div>
+    </div>
+</section>
+
 
    
 
@@ -324,7 +506,7 @@
        <section id="gallery" class="section">
     <h2>गैलरी</h2>
    
-    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel" data-interval="30">
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <img src="image1.jpg" class="d-block w-75 carousel-img" alt="Image 1">
@@ -336,15 +518,17 @@
                 <img src="image3.jpg" class="d-block w-75 carousel-img" alt="Image 3">
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
+ <a class="carousel-control-prev" href="#carouselExampleAutoplaying" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleAutoplaying" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+
     </div>
+
 </section>
 
 	<section id="contact" class="section">
